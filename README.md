@@ -1,4 +1,4 @@
-# mruby-terminal-table
+# mruby-terminal-table [![Build Status](https://travis-ci.org/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.org/appPlant/mruby-terminal-table)
 
 A fast and simple, yet feature rich ASCII table generator for mruby based on [terminal-table][terminal-table].
 
@@ -99,7 +99,7 @@ end
 To add a head to the table:
 
 ```ruby
-table = Terminal::Table.new headings: ['Word', 'Number'], rows: rows
+table = Terminal::Table.new headings: %w(Word Number), rows: rows
 
 # > puts table
 #
@@ -115,7 +115,7 @@ table = Terminal::Table.new headings: ['Word', 'Number'], rows: rows
 To add a title to the table:
 
 ```ruby
-table = Terminal::Table.new title: 'Cheatsheet', headings: ['Word', 'Number'], rows: rows
+table = Terminal::Table.new title: 'Cheatsheet', headings: %w(Word Number), rows: rows
 
 # > puts table
 #
@@ -170,7 +170,7 @@ table << ['Four', value: 4.0, alignment: :center]
 To specify style options:
 
 ```ruby
-table = Terminal::Table.new headings: ['Word', 'Number'], rows: rows, style: { width: 80 }
+table = Terminal::Table.new headings: %w(Word Number), rows: rows, style: { width: 80 }
 
 # > puts table
 #
@@ -238,7 +238,7 @@ Valid options for the constructor are `rows`, `headings`, `style` and `title` - 
 table = Terminal::Table.new
 
 table.title    = 'Cheatsheet'
-table.headings = ['Word', 'Number']
+table.headings = %w(Word Number)
 table.rows     = rows
 table.style    = { width: 40 }
 ```
