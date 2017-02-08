@@ -21,15 +21,19 @@
 # SOFTWARE.
 
 class String
-  def rjust(width, padstr = ' ')
-    return to_s unless width > length
-    reverse.ljust(width, padstr).reverse!
+  unless respond_to? :rjust
+    def rjust(width, padstr = ' ')
+      return to_s unless width > length
+      reverse.ljust(width, padstr).reverse!
+    end
   end
 
-  def center(width, padstr = ' ')
-    return to_s unless width > length
-    padlen = (width - length).divmod(2)[0]
-    ljust(length + padlen, padstr).rjust(width, padstr)
+  unless respond_to? :center
+    def center(width, padstr = ' ')
+      return to_s unless width > length
+      padlen = (width - length).divmod(2)[0]
+      ljust(length + padlen, padstr).rjust(width, padstr)
+    end
   end
 end
 
@@ -49,8 +53,8 @@ unless Hash.respond_to? :fetch
   end
 end
 
-unless Enumerable.respond_to? :max_by
-  module Enumerable
+module Enumerable
+  unless respond_to? :max_by
     def max_by(&block)
       return to_enum :max_by unless block
 
@@ -71,6 +75,26 @@ unless Enumerable.respond_to? :max_by
         end
       end
       max
+    end
+  end
+
+  unless respond_to? :zip
+    def zip(arg)
+      ary = []
+      i = 0
+
+      self.each do |*val|
+        a = []
+        a.push(val.__svalue)
+        begin
+          a.push(arg[i])
+        rescue
+          a.push(nil)
+        end
+        ary.push(a)
+        i += 1
+      end
+      ary
     end
   end
 end
