@@ -243,6 +243,12 @@ table.rows     = rows
 table.style    = { width: 40 }
 ```
 
+## Authors
+
+- All contributors from the [terminal-table][terminal-table] gem.
+- Sebastián Katzer, Fa. appPlant GmbH
+
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License][license].
