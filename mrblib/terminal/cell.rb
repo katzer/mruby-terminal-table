@@ -68,7 +68,7 @@ module Terminal
         val.send(positions[position], length)
       end
       def lines
-        @value.to_s.split
+        @value.to_s.split("\n")
       end
 
       ##

@@ -62,12 +62,12 @@ assert 'multiline content' do
     t << :separator
     t.add_row ["Two\nDouble", 2]
     t.add_separator
-    t.add_row ['Three', 3]
+    t.add_row ['Three Single', 3]
   end
   lines = table.to_s.split("\n")
   assert_equal lines.size, 8
-  assert_include lines, '| Two    | 2 |'
-  assert_include lines, '| Double |   |'
+  assert_include lines, '| Two          | 2 |'
+  assert_include lines, '| Double       |   |'
 end
 
 assert 'headings' do
