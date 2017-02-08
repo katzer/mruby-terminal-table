@@ -24,7 +24,7 @@ require_relative 'mrblib/terminal/version'
 
 MRuby::Gem::Specification.new('mruby-terminal-table') do |spec|
   spec.license = 'MIT'
-  spec.authors = 'Sebastián Katzer'
+  spec.authors = 'Sebastian Katzer, appPlant GmbH'
   spec.summary = 'table generator'
   spec.version = Terminal::VERSION
 
