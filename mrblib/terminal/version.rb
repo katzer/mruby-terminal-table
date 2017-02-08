@@ -21,5 +21,5 @@
 # SOFTWARE.
 
 module Terminal
-  VERSION = '1.7.3-dev'.freeze
+  VERSION = '1.7.3'.freeze
 end
