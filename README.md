@@ -7,7 +7,7 @@ A fast and simple, yet feature rich ASCII table generator for mruby based on [te
 Add the line below to your `build_config.rb`:
 
 ```ruby
-conf.gem github: 'appplant/mruby-terminal-table'
+conf.gem 'mruby-terminal-table'
 ```
 
 ## Usage
