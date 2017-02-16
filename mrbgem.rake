@@ -20,13 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-require_relative 'mrblib/terminal/version'
-
 MRuby::Gem::Specification.new('mruby-terminal-table') do |spec|
   spec.license = 'MIT'
   spec.authors = 'Sebastian Katzer, appPlant GmbH'
   spec.summary = 'table generator'
-  spec.version = Terminal::VERSION
 
   spec.add_dependency 'mruby-array-ext',  core: 'mruby-array-ext'
   spec.add_dependency 'mruby-string-ext', core: 'mruby-string-ext'
