@@ -41,7 +41,7 @@ module Terminal
         @value = options.fetch :value, value
         @alignment = options.fetch :alignment, nil
         @colspan = options.fetch :colspan, 1
-        @width = options.fetch :width, @value.to_s.size
+        @width = options.fetch :width, escape(@value).size
         @index = options.fetch :index
         @table = options.fetch :table
       end
