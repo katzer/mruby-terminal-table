@@ -105,6 +105,8 @@ module Terminal
       ##
       # removes all ANSI escape sequences (e.g. color)
       def escape(line)
+        line.to_s.gsub(/\e\[([;\d]+)?m/, '')
+      rescue
         line.to_s
       end
     end
