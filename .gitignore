@@ -3,6 +3,7 @@
 /.config
 /coverage/
 /InstalledFiles
+/mruby/
 /pkg/
 /spec/reports/
 /spec/examples.txt

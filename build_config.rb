@@ -20,8 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-language: c
-compiler:
-- gcc
-script:
-- rake test
+MRuby::Build.new do |conf|
+  toolchain :gcc
+
+  conf.enable_debug
+  conf.enable_test
+
+  conf.gem core: 'mruby-print'
+  conf.gem File.expand_path(File.dirname(__FILE__))
+end

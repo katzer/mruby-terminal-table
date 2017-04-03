@@ -20,8 +20,29 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-language: c
-compiler:
-- gcc
-script:
-- rake test
+MRUBY_CONFIG  = File.expand_path(ENV['MRUBY_CONFIG'] || 'build_config.rb')
+MRUBY_VERSION = ENV['MRUBY_VERSION'] || 'head'
+
+file :mruby do
+  if MRUBY_VERSION == 'head'
+    sh 'git clone --depth 1 git://github.com/mruby/mruby.git'
+  else
+    sh "curl -L --fail --retry 3 --retry-delay 1 https://github.com/mruby/mruby/archive/#{MRUBY_VERSION}.tar.gz -s -o - | tar zxf -"
+    FileUtils.mv("mruby-#{MRUBY_VERSION}", 'mruby')
+  end
+end
+
+desc 'compile binary'
+task compile: :mruby do
+  sh "cd mruby && MRUBY_CONFIG=#{MRUBY_CONFIG} ruby minirake all"
+end
+
+desc 'test'
+task test: :mruby do
+  sh "cd mruby && MRUBY_CONFIG=#{MRUBY_CONFIG} ruby minirake test"
+end
+
+desc 'cleanup'
+task :clean do
+  sh 'cd mruby && ruby minirake deep_clean'
+end
