@@ -223,7 +223,7 @@ module Terminal
         index = 0
         row.cells.each do |cell|
           cell_value = cell.value_for_column_width_recalc
-          cell_width = cell_value.to_s.length
+          cell_width = Unicode::DisplayWidth.of(cell_value.to_s)
           colspan = cell.colspan
 
           # find column width from each single cell.

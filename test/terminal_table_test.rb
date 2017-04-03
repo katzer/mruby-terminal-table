@@ -117,3 +117,13 @@ assert 'all seperators' do
   lines = table.to_s.split("\n")
   assert_equal lines.size, 7
 end
+
+assert 'unicode' do
+  table = Terminal::Table.new do |t|
+    t << ['München']
+    t << ['Munchen']
+  end
+
+  lines = table.to_s.split("\n")
+  assert_equal 11, lines.first.length
+end
