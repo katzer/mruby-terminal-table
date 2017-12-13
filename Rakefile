@@ -20,29 +20,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-MRUBY_CONFIG  = File.expand_path(ENV['MRUBY_CONFIG'] || 'build_config.rb')
-MRUBY_VERSION = ENV['MRUBY_VERSION'] || 'head'
+ENV['MRUBY_CONFIG']  ||= File.expand_path('build_config.rb')
+ENV['MRUBY_VERSION'] ||= 'head'
 
 file :mruby do
-  if MRUBY_VERSION == 'head'
+  if ENV['MRUBY_VERSION'] == 'head'
     sh 'git clone --depth 1 git://github.com/mruby/mruby.git'
   else
-    sh "curl -L --fail --retry 3 --retry-delay 1 https://github.com/mruby/mruby/archive/#{MRUBY_VERSION}.tar.gz -s -o - | tar zxf -"
-    FileUtils.mv("mruby-#{MRUBY_VERSION}", 'mruby')
+    sh "curl -L --fail --retry 3 --retry-delay 1 https://github.com/mruby/mruby/archive/#{ENV['MRUBY_VERSION']}.tar.gz -s -o - | tar zxf -" # rubocop:disable LineLength
+    mv "mruby-#{ENV['MRUBY_VERSION']}", 'mruby'
   end
 end
 
-desc 'compile binary'
-task compile: :mruby do
-  sh "cd mruby && MRUBY_CONFIG=#{MRUBY_CONFIG} ruby minirake all"
+Rake::Task[:mruby].invoke
+
+namespace :mruby do
+  Dir.chdir('mruby') { load 'Rakefile' }
 end
+
+desc 'compile binary'
+task compile: 'mruby:all'
 
 desc 'test'
-task test: :mruby do
-  sh "cd mruby && MRUBY_CONFIG=#{MRUBY_CONFIG} ruby minirake test"
-end
+task test: 'mruby:test'
 
 desc 'cleanup'
-task :clean do
-  sh 'cd mruby && ruby minirake deep_clean'
-end
+task clean: 'mruby:clean'
+
+desc 'cleanup all'
+task cleanall: 'mruby:deep_clean'

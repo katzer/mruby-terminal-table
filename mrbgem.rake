@@ -24,7 +24,7 @@ MRuby::Gem::Specification.new('mruby-terminal-table') do |spec|
   spec.license = 'MIT'
   spec.authors = 'Sebastian Katzer, appPlant GmbH'
 
-  spec.add_dependency 'mruby-array-ext',  core: 'mruby-array-ext'
-  spec.add_dependency 'mruby-string-ext', core: 'mruby-string-ext'
-  spec.add_dependency 'mruby-unicode-display_width', github: 'appplant/mruby-unicode-display_width'
+  spec.add_dependency 'mruby-array-ext',             core: 'mruby-array-ext'
+  spec.add_dependency 'mruby-string-ext',            core: 'mruby-string-ext'
+  spec.add_dependency 'mruby-unicode-display_width', mgem: 'mruby-unicode-display_width'
 end
