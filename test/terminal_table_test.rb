@@ -71,21 +71,21 @@ assert 'multiline content' do
 end
 
 assert 'headings' do
-  table = Terminal::Table.new headings: %w(Word Number), rows: rows
+  table = Terminal::Table.new headings: %w[Word Number], rows: rows
   lines = table.to_s.split("\n")
   assert_equal lines.size, 7
   assert_include lines, '| Word  | Number |'
 end
 
 assert 'title' do
-  table = Terminal::Table.new title: 'Cheatsheet', headings: %w(Word Number), rows: rows
+  table = Terminal::Table.new title: 'Cheatsheet', headings: %w[Word Number], rows: rows
   lines = table.to_s.split("\n")
   assert_equal lines.size, 9
   assert_include lines, '|   Cheatsheet   |'
 end
 
 assert 'alignment' do
-  table = Terminal::Table.new headings: %w(Word Number), rows: rows
+  table = Terminal::Table.new headings: %w[Word Number], rows: rows
   table.align_column 1, :right
   table << ['Four', value: 4.01, alignment: :center]
   lines = table.to_s.split("\n")
