@@ -1,4 +1,4 @@
-# mruby-terminal-table [![Build Status](https://travis-ci.org/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.org/appPlant/mruby-terminal-table)
+# mruby-terminal-table [![Build Status](https://travis-ci.org/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.org/appPlant/mruby-terminal-table) [![Build status](https://ci.appveyor.com/api/projects/status/qk46hmx7d6nn6eon/branch/master?svg=true)](https://ci.appveyor.com/project/katzer/mruby-terminal-table/branch/master)
 
 A fast and simple, yet feature rich ASCII table generator for mruby based on [terminal-table][terminal-table].
 
@@ -7,7 +7,19 @@ A fast and simple, yet feature rich ASCII table generator for mruby based on [te
 Add the line below to your `build_config.rb`:
 
 ```ruby
-conf.gem 'mruby-terminal-table'
+MRuby::Build.new do |conf|
+  # ... (snip) ...
+  conf.gem 'mruby-terminal-table'
+end
+```
+
+Or add this line to your aplication's `mrbgem.rake`:
+
+```ruby
+MRuby::Gem::Specification.new('your-mrbgem') do |spec|
+  # ... (snap) ...
+  spec.add_dependency 'mruby-terminal-table'
+end
 ```
 
 ## Usage
@@ -242,6 +254,30 @@ table.headings = %w(Word Number)
 table.rows     = rows
 table.style    = { width: 40 }
 ```
+
+## Development
+
+Clone the repo:
+    
+    $ git clone https://github.com/appplant/mruby-terminal-table.git && cd mruby-terminal-table/
+
+Compile the source:
+
+    $ rake compile
+
+Run the tests:
+
+    $ rake test
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/appplant/mruby-terminal-table.
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
 ## Authors
 
