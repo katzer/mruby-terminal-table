@@ -26,7 +26,7 @@ environment:
   global:
     TOOLCHAIN: gcc
   matrix:
-  - MRUBY_VERSION: 1.4.0
+  - MRUBY_VERSION: stable
   - MRUBY_VERSION: head
 
 matrix:
