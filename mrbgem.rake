@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require "#{MRUBY_ROOT}/lib/mruby/source"
+
 MRuby::Gem::Specification.new('mruby-terminal-table') do |spec|
   spec.license = 'MIT'
   spec.authors = 'Sebastian Katzer, appPlant GmbH'
@@ -28,5 +30,5 @@ MRuby::Gem::Specification.new('mruby-terminal-table') do |spec|
   spec.add_dependency 'mruby-string-ext',            core: 'mruby-string-ext'
   spec.add_dependency 'mruby-unicode-display_width', mgem: 'mruby-unicode-display_width'
 
-  spec.add_dependency 'mruby-metaprog', core: 'mruby-metaprog' if Dir.exist? "#{MRUBY_ROOT}/mrbgems/mruby-metaprog"
+  spec.add_dependency 'mruby-metaprog', core: 'mruby-metaprog' if MRuby::Source::MRUBY_VERSION >= '2.0.0'
 end
