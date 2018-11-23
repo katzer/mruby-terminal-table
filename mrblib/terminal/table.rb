@@ -39,7 +39,7 @@ module Terminal
       self.title = options.fetch :title, nil
       yield_or_eval(&block) if block
 
-      style.on_change(:width) { require_column_widths_recalc }
+      style.on_change(:width) { require_column_widths_recalc } if respond_to? :define_singleton_method
     end
 
     ##

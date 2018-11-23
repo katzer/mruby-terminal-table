@@ -65,8 +65,9 @@ module Terminal
 
       def align(val, position, length)
         positions = { :left => :ljust, :right => :rjust, :center => :center }
-        val.send(positions[position], length)
+        val.__send__(positions[position], length)
       end
+
       def lines
         @value.to_s.split("\n")
       end
