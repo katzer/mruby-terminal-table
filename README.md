@@ -1,4 +1,4 @@
-# mruby-terminal-table [![Build Status](https://travis-ci.org/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.org/appPlant/mruby-terminal-table) [![Build status](https://ci.appveyor.com/api/projects/status/qk46hmx7d6nn6eon/branch/master?svg=true)](https://ci.appveyor.com/project/katzer/mruby-terminal-table/branch/master)
+# mruby-terminal-table [![Build Status](https://travis-ci.com/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.com/appPlant/mruby-terminal-table) [![Build status](https://ci.appveyor.com/api/projects/status/qk46hmx7d6nn6eon/branch/master?svg=true)](https://ci.appveyor.com/project/katzer/mruby-terminal-table/branch/master)
 
 A fast and simple, yet feature rich ASCII table generator for mruby based on [terminal-table][terminal-table].
 
@@ -289,7 +289,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/apppla
 
 The gem is available as open source under the terms of the [MIT License][license].
 
-Made with :yum: from Leipzig
+Made with :yum: in Leipzig
 
 © 2017 [appPlant GmbH][appplant]
 
