@@ -34,7 +34,7 @@ matrix:
   - MRUBY_VERSION: head
 
 init:
-- SET PATH=C:\Ruby25-x64\bin;%PATH%;C:\cygwin64\bin
+- SET PATH=C:\Ruby26-x64\bin;%PATH%;C:\cygwin64\bin
 - gcc --version
 
 build_script:
