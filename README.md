@@ -1,4 +1,4 @@
-# mruby-terminal-table [![Build Status](https://travis-ci.com/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.com/appPlant/mruby-terminal-table)
+# mruby-terminal-table <br> [![Build Status](https://travis-ci.com/appPlant/mruby-terminal-table.svg?branch=master)](https://travis-ci.com/appPlant/mruby-terminal-table)
 
 A fast and simple, yet feature rich ASCII table generator for mruby based on [terminal-table][terminal-table].
 
